@@ -21,9 +21,17 @@ console.log("onText =>", msg, match);
 
 // Listen for any kind of message. There are different kinds of
 // messages.
+let personals = [];
+
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
   console.log(msg);
   // send a message to the chat acknowledging receipt of their message
-  bot.sendMessage(chatId, `Привет, ${msg.chat.first_name}, я задам тебе пару вопросов, ты готов?`);
+  if(msg.text == 'Да'){
+  	bot.sendMessage(chatId, `Вопрос первый!`);
+  }else{
+  		personals.push({person:chatId, messages:[msg]});
+  		bot.sendMessage(chatId, `Привет, ${msg.chat.first_name}, я задам тебе пару вопросов, ты готов?`);
+  }
+  
 });
