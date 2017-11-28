@@ -25,6 +25,5 @@ bot.on('message', (msg) => {
   const chatId = msg.chat.id;
   console.log(msg);
   // send a message to the chat acknowledging receipt of their message
-  bot.sendMessage(chatId, `Hello, ${msg.chat.first_name}, this bot isn't сomplete.
-Please wait a little longer.`);
+  bot.sendMessage(chatId, `Привет, ${msg.chat.first_name}, я задам тебе пару вопросов, ты готов?`);
 });
